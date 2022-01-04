@@ -1,0 +1,1 @@
+web: gunicorn BlogAnywhere.wsgi --log-file -
