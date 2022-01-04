@@ -1,0 +1,38 @@
+.activity-feed {
+    position: relative;
+    padding-top: calc(75px + 1rem) !important;
+    padding-bottom: 2rem !important;
+    max-width: 500px !important;
+}
+
+.activity-feed .post-count {
+    color: var(--white);
+}
+
+.activity-feed .post-card {
+    color: var(--white);
+}
+
+.activity-feed .activity-description {
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.activity-feed .activity-description a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: .3s;
+}
+
+.activity-feed .activity-description a:hover {
+    color: var(--blue-hover);
+    text-decoration: underline;
+}
+
+.activity-feed .post-card-body p {
+    margin: .5rem 0rem;
+}
+
+.activity-feed .participants i {
+    margin-right: 5px;
+}

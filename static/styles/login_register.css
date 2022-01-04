@@ -1,0 +1,87 @@
+.login_register {
+    position: relative;
+    padding-top: calc(75px + 1rem) !important;
+    padding-bottom: 2rem !important;
+}
+
+.login_register form {
+    color: var(--white);
+    max-width: 350px;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    margin: 0 auto;
+    background: var(--secondary-dark);
+}
+
+.login_register form h1 {
+    font-size: 1.5rem;
+}
+
+.login_register .form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+}
+
+.login_register .form_group:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.login_register .form_group input {
+    padding: 0.5rem;
+    height: 30px;
+    border-radius: 5px;
+    background: var(--main-dark);
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.auth-form-swap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: .5rem;
+}
+
+.auth-form-swap a {
+    color: var(--blue) !important;
+    text-decoration: none !important;
+    transition: .3s;
+}
+
+.auth-form-swap a:hover,
+.auth-form-swap a:focus {
+    color: var(--blue-hover) !important;
+}
+
+.login_register .form_group button {
+    padding: 0.5rem;
+    height: 30px;
+    border-radius: 5px;
+    background: var(--main-dark);
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.login-form-button,
+.signup-form-button {
+    padding: .25rem;
+    width: 100%;
+    height: 40px;
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: var(--card-border-radius);
+    transition: .3s;
+}
+
+.login-form-button:hover,
+.login-form-button:focus,
+.signup-form-button:hover,
+.signup-form-button:focus {
+    background-color: var(--blue-hover);
+    color: var(--white-hover);
+}

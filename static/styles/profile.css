@@ -1,0 +1,156 @@
+.profile-view {
+    position: relative;
+    padding-top: 75px !important;
+    padding-bottom: 2rem !important;
+}
+
+.profile-view .row {
+    margin-top: 1rem !important;
+}
+
+/* User profile view */
+.profile-view .user-profile-card {
+    order: 1;
+    border-radius: var(--card-border-radius);
+    background: var(--secondary-dark);
+    color: var(--white);
+    padding: 1rem;
+}
+
+.profile-view .user-profile-card .user-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.profile-view .user-profile-card .user-card-head .user-details {
+    margin-left: 8px;
+}
+
+.profile-view .user-profile-card .user-card-head .avatar {
+    margin: 0rem !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--tertiary-dark);
+    border-radius: 50%;
+}
+
+.profile-view .user-profile-card .user-card-head .avatar img {
+    object-fit: fill;
+    width: 100%;
+}
+
+.profile-view .user-profile-card .user-card-body p {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    font-size: .8rem;
+}
+
+.profile-view .user-profile-card .edit-profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--card-border-radius);
+}
+
+/* User posts */
+.user-profile-feed {
+    order: 2;
+}
+
+.user-profile-feed .post-search input {
+    width: 100%;
+    padding: 1rem;
+    height: 40px;
+    border-radius: 5px;
+    background: var(--main-dark);
+    color: var(--white);
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.user-profile-feed .post-count {
+    color: var(--white);
+}
+
+.user-profile-feed .post-card {
+    background: var(--secondary-dark);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    color: var(--white);
+}
+
+.user-profile-feed .post-card .post-card-body p {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Recent activity view */
+.profile-view .recent {
+    order: 3;
+    color: var(--white);
+    /* background: var(--secondary-dark); */
+    border-radius: var(--card-border-radius);
+    /* padding: 1rem; */
+}
+
+.profile-view .recent .recent-head {
+    background: var(--red);
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0% 0%;
+    padding: .5rem;
+    text-align: center;
+}
+
+.profile-view .recent .recent-head h1 {
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-bottom: .25rem;
+}
+
+.profile-view .recent .recent-feed {
+    padding: .25rem;
+    background: var(--secondary-dark);
+}
+
+.recent .recent-feed .recent-card {
+    border-left: 2px solid var(--tertiary-dark);
+    margin-bottom: 1rem;
+    padding: .25rem 0rem;
+    padding-left: .5rem;
+}
+
+@media screen and (max-width: 991px) {
+    .profile-view .user-profile-card {
+        max-width: 450px;
+        margin-bottom: 1rem;
+    }
+
+    .profile-view .user-profile-card .user-card-body p {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        font-size: 1rem;
+    }
+
+    .profile-view .user-profile-card .edit-profile {
+        width: 125px;
+    }
+
+    .user-profile-feed {
+        order: 3;
+    }
+
+    .profile-view .recent {
+        order: 2;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,276 @@
+.post-feed {
+    position: relative;
+    padding-top: 75px !important;
+    padding-bottom: 2rem !important;
+}
+
+.post-feed .row {
+    margin-top: 1rem !important;
+}
+
+.create-column {
+    order: 1;
+}
+
+a.create-post {
+    padding: .25rem;
+    width: 100%;
+    height: 40px;
+    color: var(--white);
+    background-color: var(--blue);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: var(--card-border-radius);
+    transition: .3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.create-post i {
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+a.create-post:hover,
+a.create-post:focus {
+    background-color: var(--blue-hover);
+    color: var(--white-hover);
+}
+
+.post-feed .feed {
+    order: 2;
+    color: var(--white);
+}
+
+.post-count {
+    font-size: 1rem;
+    opacity: .75;
+    font-style: italic;
+    text-align: right;
+}
+
+.feed .post-card {
+    background: var(--secondary-dark);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+}
+
+.post-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-card-head .user-details-container {
+    display: flex;
+}
+
+.post-card-head .avatar {
+    margin: 0rem !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--tertiary-dark);
+    border-radius: 50%;
+}
+
+.post-card-head .avatar img {
+    object-fit: fill;
+    width: 100%;
+}
+
+.post-card-head .user-details {
+    margin-left: 8px;
+}
+
+.post-card-head .user-details a {
+    color: var(--blue);
+    transition: .3s;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.post-card-head .user-details a:hover {
+    color: var(--blue-hover);
+    text-decoration: underline;
+}
+
+.post-card-head span {
+    opacity: .75;
+    font-style: italic;
+    font-size: .8rem;
+}
+
+.post-card-body {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.post-card-footer {
+    display: flex;
+    align-items: center;
+}
+
+.post-card-footer .likes {
+    margin-right: 10px;
+    background: transparent;
+    color: var(--white);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.post-card-footer .likes i {
+    color: var(--red);
+    margin-right: 5px;
+    transition: .3s;
+}
+
+.post-card-footer .likes:hover {
+    color: var(--red-hover);
+}
+
+.post-card-footer .likes:hover i {
+    color: var(--red-hover);
+}
+
+.post-card-footer .participants {
+    margin-right: 10px;
+    background: transparent;
+    color: var(--white);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.post-card-footer .participants i {
+    color: var(--red);
+    margin-right: 0px;
+    transition: .3s;
+}
+
+.post-card-footer .participants:hover {
+    /* text-decoration: underline; */
+    color: var(--blue-hover);
+}
+
+.post-card-footer .participants:hover i {
+    color: var(--blue-hover);
+}
+
+.post-card-footer .owner-options a {
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 5px;
+    transition: .3s;
+}
+
+.post-card-footer .owner-options a:hover {
+    color: var(--blue-hover);
+}
+
+.post-feed .recent {
+    order: 3;
+    color: var(--white);
+}
+
+.post-feed .recent .recent-head {
+    background: var(--red);
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0% 0%;
+    padding: .5rem;
+    text-align: center;
+}
+
+.post-feed .recent .recent-head h1 {
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-bottom: .25rem;
+}
+
+.post-feed .recent .recent-head a {
+    font-size: .8rem;
+    margin-top: 0rem;
+    color: var(--white);
+    text-decoration: none;
+    transition: .3s;
+}
+
+.post-feed .recent .recent-head a:hover {
+    color: var(--blue-hover);
+}
+
+.post-feed .recent .recent-feed {
+    padding: .25rem;
+    background: var(--secondary-dark);
+}
+
+.recent .recent-feed .recent-card {
+    border-left: 2px solid var(--tertiary-dark);
+    margin-bottom: 1rem;
+    padding: .25rem 0rem;
+    padding-left: .5rem;
+}
+
+.recent .recent-feed .recent-card .activity-description {
+    
+}
+
+.recent .recent-feed .recent-card .activity-description a {
+    color: var(--blue);
+    transition: .3s;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.recent .recent-feed .recent-card .activity-description a:hover {
+    color: var(--blue-hover);
+    text-decoration: underline;
+}
+
+.recent .recent-feed .recent-card .post-card-body,
+.recent .recent-feed .recent-card .post-card-body p {
+    font-size: 1rem;
+    margin-bottom: 0rem !important;
+    margin: .25rem 0rem !important;
+}
+
+.recent .recent-feed .recent-card .post-card-footer .participants i {
+    margin-right: 5px;
+}
+
+
+@media screen and (max-width: 991px) {
+    .post-feed .feed {
+        order: 3;
+    }
+    .post-feed .recent {
+        order: 2;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .feed .user-details-container .user-details {
+        display: flex !important;
+    }
+
+    .profile-view .user-profile-card .user-details {
+        display: flex !important;
+    }
+
+    .profile-view .user-profile-feed .post-card .post-card-head .user-details {
+        display: flex !important;
+    }
+}

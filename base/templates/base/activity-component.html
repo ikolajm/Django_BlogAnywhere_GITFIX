@@ -1,0 +1,182 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="container activity-feed">
+
+    <div class="feed">
+        <h1 class="post-count">
+            {{ activity_length }} items to view
+        </h1>
+        {% for activity in recent_activity %}
+            <div class="post-card">
+                <!-- Post -->
+                {% if activity.type == 'post' %}
+                    <div class='activity-description'>
+                        <a class='username' href="{% url 'profile' activity.author.id %}">@{{ activity.author.username }}</a>
+                        <span>posted:</span>
+                    </div>
+                    <div class="post-card-head">
+                        <div class="user-details-container">
+                            <!-- Avatar -->
+                            <figure class="avatar">
+                                <img src="{{ activity.author.avatar.url }}" alt="" />
+                            </figure>
+                            <!-- Name -->
+                            <div class="user-details">
+                                <h1>{{ activity.author.name }}</h1>
+                                <a href="{% url 'profile' activity.author.id %}">@{{ activity.author.username }}</a>
+                            </div>
+                        </div>
+                        <span>{{ activity.created|timesince }} ago</span>
+                    </div>
+                    <div class="post-card-body">
+                        <p>{{ activity.content }}</p>
+                    </div>
+                    <div class="post-card-footer">
+                        <button class="likes">
+                            {% if activity.liked %}
+                            <i class="fas fa-heart"></i>
+                            {% else %}
+                            <i class="far fa-heart"></i>
+                            {% endif %}
+                            <span>{{ activity.likes.count }} likes</span>
+                        </button>
+                        <a class="participants" href="{% url 'post' activity.id %}">
+                            {% if activity.commented %}
+                            <i class="fas fa-comment"></i>
+                            {% else %}
+                            <i class="far fa-comment"></i>
+                            {% endif %}
+                            <span>{{ activity.participants.count }} participants</span>
+                        </a>
+                    </div>
+                {% endif %}
+
+                <!-- Comment -->
+                {% if activity.type == 'comment' %}
+                <div class='activity-description'>
+                    <a class='username' href="{% url 'profile' activity.author.id %}">@{{ activity.author.username }}</a>
+                    <span>replied:</span>
+                </div>
+                <div class="post-card-head">
+                    <div class="user-details-container">
+                        <!-- Avatar -->
+                        <figure class="avatar">
+                            <img src="{{ activity.author.avatar.url }}" alt="" />
+                        </figure>
+                        <!-- Name -->
+                        <div class="user-details">
+                            <h1>{{ activity.author.name }}</h1>
+                            <a href="{% url 'profile' activity.author.id %}">@{{ activity.author.username }}</a>
+                        </div>
+                    </div>
+                    <span>{{ activity.created|timesince }} ago</span>
+                </div>
+                <div class="post-card-body">
+                    <p>{{ activity.content }}</p>
+                </div>
+                <div class="post-card-footer">
+                    <button class="likes">
+                        {% if activity.liked %}
+                        <i class="fas fa-heart"></i>
+                        {% else %}
+                        <i class="far fa-heart"></i>
+                        {% endif %}
+                        <span>{{ activity.likes.count }} likes</span>
+                    </button>
+                    <a class="participants" href="{% url 'post' activity.id %}">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>View</span>
+                    </a>
+                </div>
+                {% endif %}
+
+                <!-- Postlike -->
+                {% if activity.type == 'post_like' %}
+                <div class='activity-description'>
+                    <a class='username' href="{% url 'profile' activity.user.id %}">@{{ activity.user.username }}</a>
+                    <span>liked:</span>
+                </div>
+                <div class="post-card-head">
+                    <div class="user-details-container">
+                        <!-- Avatar -->
+                        <figure class="avatar">
+                            <img src="{{ activity.post.author.avatar.url }}" alt="" />
+                        </figure>
+                        <!-- Name -->
+                        <div class="user-details">
+                            <h1>{{ activity.post.author.name }}</h1>
+                            <a href="{% url 'profile' activity.post.author.id %}">@{{ activity.post.author.username }}</a>
+                        </div>
+                    </div>
+                    <span>{{ activity.created|timesince }} ago</span>
+                </div>
+                <div class="post-card-body">
+                    <p>{{ activity.post.content }}</p>
+                </div>
+                <div class="post-card-footer">
+                    <button class="likes">
+                        {% if activity.post.liked %}
+                        <i class="fas fa-heart"></i>
+                        {% else %}
+                        <i class="far fa-heart"></i>
+                        {% endif %}
+                        <span>{{ activity.post.likes.count }} likes</span>
+                    </button>
+                    <a class="participants" href="{% url 'post' activity.post.id %}">
+                        {% if activity.post.commented %}
+                        <i class="fas fa-comment"></i>
+                        {% else %}
+                        <i class="far fa-comment"></i>
+                        {% endif %}
+                        <span>{{ activity.post.participants.count }} participants</span>
+                    </a>
+                </div>
+                {% endif %}
+
+                <!-- Commentlike -->
+                {% if activity.type == 'comment_like' %}
+                <div class='activity-description'>
+                    <a class='username' href="{% url 'profile' activity.user.id %}">@{{ activity.user.username }}</a>
+                    <span>liked:</span>
+                </div>
+                <div class="post-card-head">
+                    <div class="user-details-container">
+                        <!-- Avatar -->
+                        <figure class="avatar">
+                            <img src="{{ activity.comment.author.avatar.url }}" alt="" />
+                        </figure>
+                        <!-- Name -->
+                        <div class="user-details">
+                            <h1>{{ activity.comment.author.name }}</h1>
+                            <a href="{% url 'profile' activity.comment.author.id %}">@{{ activity.comment.author.username }}</a>
+                        </div>
+                    </div>
+                    <span>{{ activity.created|timesince }} ago</span>
+                </div>
+                <div class="post-card-body">
+                    <p>{{ activity.comment.content }}</p>
+                </div>
+                <div class="post-card-footer">
+                    <button class="likes">
+                        {% if activity.comment.liked %}
+                        <i class="fas fa-heart"></i>
+                        {% else %}
+                        <i class="far fa-heart"></i>
+                        {% endif %}
+                        <span>{{ activity.comment.likes.count }} likes</span>
+                    </button>
+                    <a class="participants" href="{% url 'post' activity.comment.post.id %}">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>View</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock content %}

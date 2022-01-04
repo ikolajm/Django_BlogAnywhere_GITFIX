@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<section class="container create-form">
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <h1>Edit comment</h1>
+        {% for field in form %}
+            <div class="form_group">
+                <label for="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <div class="button-container">
+            <a href="{% url 'post' comment.post.id %}" class="create-cancel-button" type="submit">Cancel</a>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+
+</section>
+{% endblock %}

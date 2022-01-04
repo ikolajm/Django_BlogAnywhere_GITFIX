@@ -1,0 +1,135 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class='container single-post'>
+
+    <div class="row">
+
+        <div class="col-lg-8 post">
+            <div class="post-card">
+                <div class="post">
+                    <div class="post-card-head">
+                        <div class="user-details-container">
+                            <!-- Avatar -->
+                            <figure class="avatar">
+                                <img src="{{ post.author.avatar.url }}" alt="" />
+                            </figure>
+                            <!-- Name -->
+                            <div class="user-details">
+                                <h1>{{ post.author.name }}</h1>
+                                <a href="{% url 'profile' post.author.id %}">@{{ post.author.username }}</a>
+                            </div>
+                        </div>
+                        <!-- Date -->
+                        <span>{{ post.created|timesince }} ago</span>
+                    </div>
+    
+                    <div class="post-card-body">
+                        <p>{{ post.content }}</p>
+                    </div>
+    
+                    <!-- Like/participation data -->
+                    <div class="post-card-footer">
+                        <button class="likes">
+                            {% if post.liked %}
+                            <i class="fas fa-heart"></i>
+                            {% else %}
+                            <i class="far fa-heart"></i>
+                            {% endif %}
+                            <span>{{ post.likes.count }} likes</span>
+                        </button>
+                        <a class="participants" href="{% url 'post' post.id %}">
+                            {% if post.commented %}
+                            <i class="fas fa-comment"></i>
+                            {% else %}
+                            <i class="far fa-comment"></i>
+                            {% endif %}
+                            <span>{{ participants.count }} participants</span>
+                        </a>
+                        {% if request.user.id == post.author.id %}
+                        <div class="owner-options">
+                            <a class="edit" href="{% url 'edit-post' post.id %}">Edit</a>
+                            <a class="delete" href="{% url 'delete-post' post.id %}">Delete</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="post-card-comments">
+                    <!-- <h1>Post comments</h1> -->
+                    {% for comment in post.comments %}
+                    <div class="comment">
+                        <!-- Head -->
+                        <div class="comment-head">
+                            <div class="user-details-container">
+                                <!-- Avatar -->
+                                <figure class="avatar">
+                                    <img src="{{ comment.author.avatar.url }}" alt="" />
+                                </figure>
+                                <!-- Name -->
+                                <div class="user-details">
+                                    <h1>{{ comment.author.name }}</h1>
+                                    <a href="{% url 'profile' comment.author.id %}">@{{ comment.author.username }}</a>
+                                </div>
+                            </div>
+                            <!-- Date -->
+                            <span>{{ comment.created|timesince }} ago</span>
+                        </div>
+                        <div class="comment-content">
+                            <p>{{ comment.content }}</p>
+                        </div>
+                        <div class="comment-footer">
+                            <button class="likes">
+                                {% if comment.liked %}
+                                <i class="fas fa-heart"></i>
+                                {% else %}
+                                <i class="far fa-heart"></i>
+                                {% endif %}
+                                <span>{{ comment.likes.count }} likes</span>
+                            </button>
+                            {% if request.user.id == post.author.id %}
+                            <div class="owner-options">
+                                <a class="edit" href="{% url 'edit-comment' comment.id %}">Edit</a>
+                                <a class="delete" href="{% url 'delete-comment' comment.id %}">Delete</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if request.user.id %}
+                <div class="create-comment">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input name="body" type="text" placeholder="Write your message here"  />
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-lg-4 post-participants">
+            <div class="post-participants-head">
+                <h1>Participants</h1>
+            </div>
+            <div class='post-participants-list'>
+                {% for participant in participants %}
+                <div class="participant-card">
+                    <figure class="avatar">
+                        <img src="{{ participant.avatar.url }}" alt="" />
+                    </figure>
+                    <div class="user-details">
+                        <h1>{{ participant.name }}</h1>
+                        <a href="{% url 'profile' participant.id %}">@{{ participant.username }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

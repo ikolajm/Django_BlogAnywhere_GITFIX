@@ -1,0 +1,130 @@
+.update-user {
+    position: relative;
+    padding-top: calc(75px + 1rem) !important;
+    padding-bottom: 2rem !important;
+}
+
+.update-user form {
+    color: var(--white);
+    max-width: 350px;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+    margin: 0 auto;
+    background: var(--secondary-dark);
+}
+
+.update-user form a:hover {
+    color: var(--blue-hover);
+}
+
+.update-user form a i {
+    margin-right: 5px;
+}
+
+.update-user form h1 {
+    font-size: 1.5rem;
+}
+
+.update-user .form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+}
+
+.update-user .form_group:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.update-user .form_group .avatar-content-container {
+    display: flex;
+    align-items: center;
+}
+
+.update-user .form_group .avatar-content-container figure {
+    margin: 0rem !important;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--tertiary-dark);
+    border-radius: 50%;
+}
+
+.update-user .form_group .avatar-content-container figure img {
+    object-fit: fill;
+    width: 100%;
+}
+
+.update-user .form_group .avatar-content-container .files {
+    font-size: .75rem;
+    margin-left: 5px;
+}
+
+.update-user .form_group .avatar-content-container .file-input {
+    background: none;
+    font-size: .8rem;
+    height: 40px;
+    padding: .5rem 0rem;
+}
+
+.update-user .form_group input {
+    padding: 0.5rem;
+    height: 30px;
+    border-radius: 5px;
+    background: var(--main-dark);
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.update-user .form_group textarea {
+    padding: 0.5rem;
+    height: 100px;
+    border-radius: var(--card-border-radius);
+    background: var(--main-dark);
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.update-user form .button-container  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.update-user .button-container a {
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    transition: .3s;
+    background: var(--tertiary-dark);
+    padding: .5rem;
+    border-radius: var(--card-border-radius);
+}
+
+.update-user .button-container a:hover {
+    color: var(--white-hover);
+    background: var(--main-dark);
+}
+
+.update-user .button-container .update-submit-button {
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    transition: .3s;
+    background: var(--blue);
+    padding: .5rem;
+    border-radius: var(--card-border-radius);
+    outline: none;
+    border: none;
+}
+
+.update-user .button-container .update-submit-button:hover {
+    color: var(--white-hover);
+    background: var(--blue-hover);
+}

@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="container update-user">
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- <a href="{% url 'profile' user.id %}"><i class="fas fa-long-arrow-alt-left"></i> go back</a> -->
+        <h1>Edit your profile</h1>
+        <!-- Avatar -->
+        <div class="form_group">
+            <label for="">Avatar</label>
+            <div class="avatar-content-container">
+                <!-- Avatar -->
+                <figure class="avatar">
+                    <img src="{{ user.avatar.url }}" alt="" />
+                </figure>
+                <!-- Avatar url -->
+                <!-- <span>{{ user.avatar.url }}</span> -->
+                <div class="files">
+                    <span>Current: {{ sliced_url }}</span>
+                    <input class="file-input" type="file" name="avatar" />
+                </div>
+            </div>
+        </div>
+        <!-- All fields but avatar field -->
+        {% for field in form %}
+            <div class="form_group">
+                <label for="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <div class="button-container">
+            <a href="{% url 'profile' user.id %}" class="update-cancel-button" type="submit">Cancel</a>
+            <button class="update-submit-button" type="submit">Update</button>
+        </div>
+    </form>
+
+</section>
+
+{% endblock %}

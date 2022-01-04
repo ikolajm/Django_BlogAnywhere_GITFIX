@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="container login_register">
+    {% if page == 'login' %}
+    <form method="POST" action="">
+        <h1>Welcome back</h1>
+        {% csrf_token %}
+        <div class="form_group ">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" placeholder="Cool_name@email.com" />
+        </div>
+        <div class="form_group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" />
+        </div>
+        <div class="auth-form-swap">
+            <a href="{% url 'register' %}">Don't have an account?</a>
+        </div>
+        <button class="login-form-button" type="submit">Submit</button>
+    </form>
+    {% else %}
+    <form method="POST" action="">
+        <h1>Sign up</h1>
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form_group">
+            <label for="">{{field.label}}</label>
+            {{field}}
+          </div>
+          {% endfor %}
+          <div class="auth-form-swap">
+              <a href="{% url 'login' %}">Already a user?</a>
+          </div>
+          <button class="signup-form-button" type="submit">Submit</button>
+    </form>
+    {% endif %}
+
+</section>
+
+{% endblock %}

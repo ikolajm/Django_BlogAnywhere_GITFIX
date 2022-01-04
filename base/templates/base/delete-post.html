@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="container create-form">
+    
+    
+    <form method="POST" action="">
+        <h1>Delete post</h1>
+        {% csrf_token %}
+        <div class="post-card">
+            <!-- Head -->
+            <div class="post-card-head">
+                <div class="user-details-container">
+                    <!-- Avatar -->
+                    <figure class="avatar">
+                        <img src="{{ post.author.avatar.url }}" alt="" />
+                    </figure>
+                    <!-- Name -->
+                    <div class="user-details">
+                        <h1>{{ post.author.name }}</h1>
+                        <a href="{% url 'profile' post.author.id %}">@{{ post.author.username }}</a>
+                    </div>
+                </div>
+                <!-- Date -->
+                <span>{{ post.created|timesince }} ago</span>
+            </div>
+        
+            <!-- Body -->
+            <div class="post-card-body">
+                <p>{{ post.content }}</p>
+            </div>
+        
+            <!-- Like/participation data -->
+            <div class="post-card-footer">
+                <button disabled class="likes">
+                    {% if post.liked %}
+                    <i class="fas fa-heart"></i>
+                    {% else %}
+                    <i class="far fa-heart"></i>
+                    {% endif %}
+                    <span>{{ post.likes.count }} likes</span>
+                </button>
+                <span class="participants">
+                    {% if post.commented %}
+                    <i class="fas fa-comment"></i>
+                    {% else %}
+                    <i class="far fa-comment"></i>
+                    {% endif %}
+                    <span>{{ post.participants.count }} participants</span>
+                </span>
+            </div>
+        
+        </div>
+        <p>Are you sure you want to delete this post?</p>
+        <div class="button-container">
+            <a href="{% url 'post' post.id %}" class="create-cancel-button" type="submit">Cancel</a>
+            <button type="submit">Delete</button>
+        </div>
+    </form>
+
+</section>
+
+{% endblock %}
